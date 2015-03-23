@@ -1,0 +1,2 @@
+# javascript-history-maintained-random-number-for-higher-quality-random-index-from-array
+[JavaScript] select a random index from an array, optionally specify that the index (number) hasn't used in the last X most recent times. Example For Jimmy@google - History maintained code, using SCOPE as control-mechanism, and using JavaScript's Object-Oriented design to enable uncanny expansions of embedding functions within the returned (SCOPE'd) function -WITH NO NEW OBJECT GENERATION - very lite on memory!!!
