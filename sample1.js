@@ -1,8 +1,10 @@
 Array.prototype.get_random_index = (function(){
   var global_history = [];
 
-  function get_random_index(array, no_repeat_recent_X_items){
-    var rnd = Math.random() * array.length;
+  function get_random_index(no_repeat_recent_X_items, array){
+    array = array instanceof Array ? array : this; //normalize arg.
+
+    var rnd = ~~(Math.random() * array.length);
 
     ok_index = ("undefined" === typeof no_repeat_recent_X_items) ? rnd : (function(){
                                                                            /* 1. trim history. 2. return random-item that was not in recent-history */
@@ -18,13 +20,13 @@ Array.prototype.get_random_index = (function(){
                                                                            return ok_indexes[rnd];
                                                                          }());
     global_history = [].concat(ok_index, global_history);                /* always maintain history       ===== global_history.unshift(ok_index); */
-    console.log(global_history);
+    //console.log("global history", global_history);
 
     return ok_index;
   }
   
   get_random_index.__clear_history = function(){ global_history = []; return true; };     /* clear history */
-  get_random_index.__get_history = function(){   return [].concat(global_history); };     /* return an unreferenced array of history
+  //get_random_index.__get_history = function(){   return [].concat(global_history); };     /* return an unreferenced array of history
   
   return get_random_index;
 }());
